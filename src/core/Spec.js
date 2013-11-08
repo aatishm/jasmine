@@ -67,9 +67,10 @@ jasmine.Spec.prototype.addMatcherResult = function(result) {
   this.results_.addResult(result);
 };
 
-jasmine.Spec.prototype.expect = function(actual) {
+jasmine.Spec.prototype.expect = function(actual, failureMessage) {
   var positive = new (this.getMatchersClass_())(this.env, actual, this);
   positive.not = new (this.getMatchersClass_())(this.env, actual, this, true);
+  positive.failureMessage = failureMessage;
   return positive;
 };
 

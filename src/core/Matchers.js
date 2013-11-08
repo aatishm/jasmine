@@ -60,6 +60,12 @@ jasmine.Matchers.matcherFn_ = function(matcherName, matcherFunction) {
         message += ".";
       }
     }
+
+    // Prepend user-defined failure message (if any)
+    if (this.failureMessage) {
+        message = this.failureMessage + " " + message;
+    }
+
     var expectationResult = new jasmine.ExpectationResult({
       matcherName: matcherName,
       passed: result,

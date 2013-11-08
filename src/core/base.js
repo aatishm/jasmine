@@ -518,12 +518,14 @@ if (isCommonJS) exports.xit = xit;
  *
  * It is passed an Object that is the actual value and should chain to one of the many
  * jasmine.Matchers functions.
+ * It also accepts an optional parameter failureMessage
  *
  * @param {Object} actual Actual value to test against and expected value
+ * @param {String} failureMessage Failure Message that will be displayed on a test failure
  * @return {jasmine.Matchers}
  */
-var expect = function(actual) {
-  return jasmine.getEnv().currentSpec.expect(actual);
+var expect = function(actual, failureMessage) {
+  return jasmine.getEnv().currentSpec.expect(actual, failureMessage);
 };
 if (isCommonJS) exports.expect = expect;
 
